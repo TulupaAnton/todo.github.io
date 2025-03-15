@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #153677, #4e085f);
+  padding: 10px;
+}
+.todo-app {
+  width: 100%;
+  max-width: 540px;
+  background: #fff;
+  margin: 100px auto 20px;
+  padding: 40px 30px 70px;
+  border-radius: 10px;
+}
+
+.todo-app h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #edeef0;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+  font-size: 15px;
+}
+.createBtn {
+  background: #4e085f;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  border-radius: 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+ul li {
+  list-style: none;
+  font-size: 18px;
+  padding: 12px 8px 12px 50px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+ul li::before {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-image: url(images/unchecked.png);
+  background-size: cover;
+  background-position: center;
+  top: 12px;
+  left: 8px;
+}
+.edit-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.edit-icon {
+  right: 50px;
+}
+
+.edit-icon:hover {
+  background: #edeef0;
+}
+
+ul li.checked {
+  color: #555;
+  text-decoration: line-through;
+}
+ul li.checked::before {
+  background-image: url(images/checked.png);
+}
+
+ul li span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+ul li span:hover {
+  background: #edeef0;
+}
+
+.deleteBtn {
+  display: none;
+  background: #4e085f;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  border-radius: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+}
+/* Адаптивность для мобильных устройств */
+@media (max-width: 600px) {
+  .todo-app {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 0;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .createBtn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 40px; /* Оставляем место для чекбокса */
+    position: relative;
+  }
+
+  ul li::before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .edit-icon {
+    align-self: flex-end; /* Перемещаем значок редактирования вправо */
+    margin-top: 5px; /* Добавляем небольшой отступ */
+  }
+  .task-text {
+    word-break: break-word;
+    max-width: 100%;
+  }
+
+  .btn-container {
+    display: flex;
+    gap: 5px;
+  }
+
+  .delete-icon,
+  .edit-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .deleteBtn {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
+}
